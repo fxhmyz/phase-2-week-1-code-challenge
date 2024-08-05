@@ -1,15 +1,20 @@
 import React from "react";
+import { Input, Icon } from 'semantic-ui-react';
 
-function Search() {
+function Search({ setSearchTerm }) {
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
-    <div className="ui large fluid icon input">
-      <input
-        type="text"
-        placeholder="Search your Recent Transactions"
-        onChange={() => console.log("Searching...")}
-      />
-      <i className="circular search link icon"></i>
-    </div>
+    <Input
+      icon={<Icon name="search" link />}
+      iconPosition="left"
+      placeholder="Search your Recent Transactions"
+      onChange={handleSearch}
+      fluid
+      size="large"
+    />
   );
 }
 
